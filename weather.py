@@ -1,3 +1,6 @@
+"""
+Authors: Armando, Lily, Eduardo, Gabe
+"""
 import json
 from pprint import pprint
 import urllib.request
