@@ -1,6 +1,10 @@
 """
 Authors: Armando, Lily, Eduardo, Gabe
 """
+from flask import Flask, render_template, request
+from PIL import Image
+from flask_bootstrap import Bootstrap5
+import random
 import json
 from pprint import pprint
 import urllib.request
@@ -25,7 +29,7 @@ try:
 except:
     print("geo fail, please try again")
 
-weather_endpoint = f"https://api.openweathermap.org/data/2.5/weather?lat={data[0]["lat"]}&lon={data[0]["lon"]}&appid={my_key}"
+weather_endpoint = f"https://api.openweathermap.org/data/2.5/weather?lat={data[0]['lat']}&lon={data[0]['lon']}&appid={my_key}"
 
 try:
     r = requests.get(weather_endpoint)
@@ -33,3 +37,15 @@ try:
     pprint(data)
 except:
     print("weather fail, please try again")
+
+app = Flask(__name__)
+bootstrap = Bootstrap5(app)
+
+@app.route('/')
+def homepage():
+    return render_template('Weather_Details.html')
+
+# @app.route('/submit', methods=['POST'])
+# def link():
+#     textinput = request.form['textinput']
+#     return render_template('Weather_Deatils.html', textinput = textinput)
