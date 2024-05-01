@@ -16,11 +16,20 @@ my_key = "77b4df041ddc47e427d8799ea237cb80"
 city_name = "Salinas"
 limit = 1
 
-endpoint = f"http://api.openweathermap.org/geo/1.0/direct?q={city_name}&limit={limit}&appid={my_key}"
+geo_endpoint = f"http://api.openweathermap.org/geo/1.0/direct?q={city_name}&limit={limit}&appid={my_key}"
 
 try:
-    r = requests.get(endpoint)
+    r = requests.get(geo_endpoint)
     data = r.json()
     pprint(data)
 except:
-    print("please try again")
+    print("geo fail, please try again")
+
+weather_endpoint = f"https://api.openweathermap.org/data/2.5/weather?lat={data[0]["lat"]}&lon={data[0]["lon"]}&appid={my_key}"
+
+try:
+    r = requests.get(weather_endpoint)
+    data = r.json()
+    pprint(data)
+except:
+    print("weather fail, please try again")
