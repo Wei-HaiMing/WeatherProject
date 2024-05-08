@@ -24,12 +24,12 @@
       <div class="container">
           <h1> Otter Weather</h1>
           <p> Weather in {{city_name}}</p>
-          <!-- <p>Temperature {temp}°F</p>
-          <p>Temperature {temp}°C</p>
-          <p>Wind{wind_speed} </p>
+          <!-- Kelvin to Fahrenheit & Celsius conversions done below. -->
+          <p> Temperature Fahrenheit: {{(((weatherdata['main']['temp']) - 273.15) * 1.8 + 32) | round(2)}}°F</p>
+          <p>Temperature Celsius: {{((weatherdata['main']['temp']) - 273.15) | round(2)}}°C</p>
+          <!-- <p>Wind{wind_speed} </p>
           <p>Humidity{humidity} </p>
-          <p>Weather Condition: {weather_condition}</p> -->
+          <p>Weather Condition: {weather_condition}</p>   -->
       </div>
   </body>
-
 </html>
