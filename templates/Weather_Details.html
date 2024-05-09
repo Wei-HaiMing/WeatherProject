@@ -8,16 +8,18 @@
 
     <style>
         body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-      }
-      h1 {
-        color: #00698f;
-      }
-      p {
-        font-size: 18px;
-        margin-bottom: 20px;
-      }
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #00698f;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
   <body>
@@ -27,10 +29,50 @@
           <!-- Kelvin to Fahrenheit & Celsius conversions done below. -->
           <p> Temperature Fahrenheit: {{(((weatherdata['main']['temp']) - 273.15) * 1.8 + 32) | round(2)}}°F</p>
           <p>Temperature Celsius: {{((weatherdata['main']['temp']) - 273.15) | round(2)}}°C</p>
+
+          {% set temp_celsius = ((weatherdata['main']['temp']) - 273.15) | round(2) %}
           <p>Wind Speed:</p>
           <p> {{weatherdata['wind']['speed'] | round(2)}}m/s or {{((weatherdata['wind']['speed']) * 2.23694) | round(2)}}mpH </p>
           <!-- <p>Humidity{humidity} </p>
           <p>Weather Condition: {weather_condition}</p>   --> 
+
+          {% if temp_celsius < 0 %}
+              <style>
+                  body {
+                      background-image: url('static/images/snow.avif');
+                      background-repeat: no-repeat;
+                      background-attachment: fixed;
+                      background-size: cover;
+                  }
+              </style>
+          {% elif temp_celsius < 10 %}
+              <style>
+                  body {
+                      background-image: url('static/images/cloudy.jpg');
+                      background-repeat: no-repeat;
+                      background-attachment: fixed;
+                      background-size: cover;
+                  }
+              </style>
+          {% elif temp_celsius < 20 %}
+              <style>
+                  body {
+                      background-image: url('static/images/sunny.jpg');
+                      background-repeat: no-repeat;
+                      background-attachment: fixed;
+                      background-size: cover;
+                  }
+              </style>
+          {% else %}
+              <style>
+                  body {
+                      background-image: url('static/images/sun-heat.jpg');
+                      background-repeat: no-repeat;
+                      background-attachment: fixed;
+                      background-size: cover;
+                  }
+              </style>
+          {% endif %}
       </div>
   </body>
 </html>
