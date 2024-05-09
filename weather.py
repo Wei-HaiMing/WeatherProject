@@ -12,11 +12,6 @@ import requests
 
 my_key = "77b4df041ddc47e427d8799ea237cb80"
 
-# payload = {
-#     "q": "Salinas",
-#     "appid": my_key,
-#     "limit": 1
-# }
 app = Flask(__name__)
 bootstrap = Bootstrap5(app)
 
