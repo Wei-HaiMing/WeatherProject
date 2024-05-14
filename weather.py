@@ -1,5 +1,8 @@
 """
 Authors: Armando, Lily, Eduardo, Gabe
+Course: CST-205
+Date: 05/14/2024
+
 """
 from flask import  Flask, render_template, request, redirect
 from PIL import Image
