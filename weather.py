@@ -1,5 +1,9 @@
 """
 Authors: Armando, Lily, Eduardo, Gabe
+Course: CST-205
+Date: 05/14/2024
+
+=======
 Gabe and Armando mostly worked on this python file 
 """
 from flask import  Flask, render_template, request, redirect

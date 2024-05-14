@@ -1,36 +1,66 @@
 <! This was created Eduardo Sanchez but was worked with Grabriel ––> 
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+    <link rel="stylesheet" href="templates/detailStyle.css">
+   <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+
     <title>Otter Weather</title>
 
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Poppins, sans-serif;
             text-align: center;
             margin: 0;
             padding: 0;
         }
         h1 {
-            color: #00698f;
+            font-family: Poppins, sans-serif;
+            color: #005777;
+            font-size: 100px;
+            text-align: center;
+        }
+        h2 {
+            font-family: Arial, sans-serif;
+            font-size:80px;
+            text-align:center;
         }
         p {
-            font-size: 18px;
+            font-family: Arial, sans-serif;
+            font-size: 70px;
             margin-bottom: 20px;
+        }
+        .parallax-1{
+            background-image: url('/templates/hot.jpg') no-repeat;
+            background-size:cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .parallax-inner{
+            padding:10% 0;
         }
     </style>
 </head>
   <body>
-      <div class="container">
-          <h1> Otter Weather</h1>
-          <p> Weather in {{city_name}}</p>
+      <!-- <div class="container"> -->
+        <section class="parallax-1">
+            <div class="parallax-inner">
+                <h1> Otter Weather</h1>
+            </div>
+        </section>
+          <h2> Weather in {{city_name}}</h2>
+          <br>
           <!-- Kelvin to Fahrenheit & Celsius conversions done below. -->
-          <p> Temperature Fahrenheit: {{(((weatherdata['main']['temp']) - 273.15) * 1.8 + 32) | round(2)}}°F</p>
-          <p>Temperature Celsius: {{((weatherdata['main']['temp']) - 273.15) | round(2)}}°C</p>
+          <p> Temperature Fahrenheit:<br> {{(((weatherdata['main']['temp']) - 273.15) * 1.8 + 32) | round(2)}}°F</p>
+          <p>Temperature Celsius:<br> {{((weatherdata['main']['temp']) - 273.15) | round(2)}}°C</p>
 
           {% set temp_celsius = ((weatherdata['main']['temp']) - 273.15) | round(2) %}
           <p>Wind Speed:</p>
@@ -38,7 +68,7 @@
           <!-- <p>Humidity{humidity} </p>
           <p>Weather Condition: {weather_condition}</p>   --> 
 
-          {% if temp_celsius < 0 %}
+          <!-- {% if temp_celsius < 0 %}
               <style>
                   body {
                       background-image: url('static/images/snow.avif');
@@ -74,7 +104,7 @@
                       background-size: cover;
                   }
               </style>
-          {% endif %}
+          {% endif %} -->
       </div>
   </body>
 </html>
