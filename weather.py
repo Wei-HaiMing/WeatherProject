@@ -1,5 +1,6 @@
 """
 Authors: Armando, Lily, Eduardo, Gabe
+Gabe and Armando mostly worked on this python file 
 """
 from flask import  Flask, render_template, request, redirect
 from PIL import Image
