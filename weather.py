@@ -9,6 +9,7 @@ import json
 from pprint import pprint
 import urllib.request
 import requests
+import numpy as np
 
 my_key = "77b4df041ddc47e427d8799ea237cb80"
 
@@ -53,4 +54,31 @@ def link():
     except:
         print("Weather Endpoint Fail Error!")
 
-    return render_template('Weather_Details.html', city_name = city_name, geodata = geodata, weatherdata = weatherdata)
+    op = "clouds_new"
+    zoom = 2
+    x = 2
+    y = 2
+    icon_code = weatherdata["weather"][0]["icon"]
+
+    map_endpoint = f"https://tile.openweathermap.org/map/{op}/{zoom}/{x}/{y}.png?appid={my_key}"
+    icon_url = f"https://openweathermap.org/img/wn/{icon_code}@2x.png"
+
+    urllib.request.urlretrieve(icon_url, "static/images/weather_icon.png")
+    
+    my_src = Image.open('weather_icon.png')
+    # my_src.show()
+
+    # try:
+    #     map_req = requests.get(map_endpoint)    
+    #     # print(f"request thing {map_data}")
+
+    #     # map_img = Image.open(map_img)
+    #     # mapdata = map_req.json()
+    #     # map_img.show()
+    # except:
+    #     print("Map Endpoint Fail Error!")
+
+    pprint(f"geodata->{geodata}")
+    pprint(f"weatherdata->{weatherdata}")
+    # pprint(mapdata.type())
+    return render_template('Weather_Details.html', city_name = city_name, geodata = geodata, weatherdata = weatherdata, icon_name = "weather_icon.png")
