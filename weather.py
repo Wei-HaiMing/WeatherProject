@@ -1,5 +1,10 @@
 """
 Authors: Armando, Lily, Eduardo, Gabe
+Course: CST-205
+Date: 05/14/2024
+
+=======
+Gabe and Armando mostly worked on this python file 
 """
 from flask import  Flask, render_template, request, redirect
 from PIL import Image
@@ -54,6 +59,7 @@ def link():
     except:
         print("Weather Endpoint Fail Error!")
 
+
     op = "clouds_new"
     zoom = 2
     x = 2
@@ -82,3 +88,4 @@ def link():
     pprint(f"weatherdata->{weatherdata}")
     # pprint(mapdata.type())
     return render_template('Weather_Details.html', city_name = city_name, geodata = geodata, weatherdata = weatherdata, icon_name = "weather_icon.png")
+
