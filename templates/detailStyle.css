@@ -13,10 +13,12 @@ body{
     background: #b40a0a;
 }
 .parallax-1{
-    background-image: url('/templates/hot.jpg') no-repeat;
+    background-image: url('/templates/hot.jpg');
     background-size:cover;
     background-position: center;
     background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 500px;
 }
 .parallax-inner{
     padding:10% 0;
