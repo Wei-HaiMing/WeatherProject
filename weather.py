@@ -1,5 +1,5 @@
 """
-Authors: Armando, Lily, Eduardo, Gabe
+Authors: Armando, Liliana, Eduardo, Gabe
 Course: CST-205
 Date: 05/14/2024
 
