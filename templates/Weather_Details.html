@@ -65,10 +65,11 @@
           {% set temp_celsius = ((weatherdata['main']['temp']) - 273.15) | round(2) %}
           <p>Wind Speed:</p>
           <p> {{weatherdata['wind']['speed'] | round(2)}}m/s or {{((weatherdata['wind']['speed']) * 2.23694) | round(2)}}mpH </p>
-          <!-- <p>Humidity{humidity} </p>
-          <p>Weather Condition: {weather_condition}</p>    -->
 
-          {% if temp_celsius < 0 %}
+           <p>Humidity{humidity} </p>
+          <p>Weather Condition: {weather_condition}</p>   
+
+           {% if temp_celsius < 0 %}
               <style>
                   body {
                       background-image: url('static/images/snow.avif');
@@ -89,7 +90,7 @@
           {% elif temp_celsius < 20 %}
               <style>
                   body {
-                      background-image: url('static/images/sunny.jpg');
+                      background-image: url('static/images/sunny2.0.jpg');
                       background-repeat: no-repeat;
                       background-attachment: fixed;
                       background-size: cover;
@@ -104,7 +105,9 @@
                       background-size: cover;
                   }
               </style>
-          {% endif %}
+          {% endif %} 
+          <img src="/static/images/{{icon_name}}" width="100" class="img-fluid rounded" alt="weather_icon" />
+
       </div>
   </body>
 </html>
