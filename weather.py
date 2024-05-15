@@ -7,6 +7,11 @@ and brings a second page with some weather information of that city currently.
 GitHub Link: https://github.com/Wei-HaiMing/WeatherProject
 =======
 Gabe and Armando mostly worked on this python file 
+Armando: I worked on understanding the parameters that the API we used
+and how to retrieve the correct information in order for city name 
+searches to function properly. Also retrieved and displayed weather
+icon on the weather details page. I attempted to retrieve a map from the
+API, but was unsuccessful.
 """
 from flask import  Flask, render_template, request, redirect
 from PIL import Image
