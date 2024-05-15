@@ -17,13 +17,13 @@ import urllib.request
 import requests
 import numpy as np
 
-my_key = "77b4df041ddc47e427d8799ea237cb80"
+my_key = "77b4df041ddc47e427d8799ea237cb80" # API key
 
 app = Flask(__name__)
 bootstrap = Bootstrap5(app)
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST']) # route to homepage
 def homepage():
     global city_name
     city_name = request.form.get('citytxtbox')
@@ -31,7 +31,7 @@ def homepage():
 
 
 @app.route('/details')
-def link():
+def link(): # route to details page
     city_name = request.args.get('citytxtbox')
 
     limit = 1
@@ -40,6 +40,7 @@ def link():
     # geo test endpoint:
     # https://api.openweathermap.org/geo/1.0/direct?q=Monterey&limit=1&appid=77b4df041ddc47e427d8799ea237cb80
 
+    # retrieves longitude and latitude from GeoEncoder API
     try:
         greq = requests.get(geo_endpoint)
         geodata = greq.json()
@@ -53,7 +54,7 @@ def link():
     weather_endpoint = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={my_key}"
     # weather test endpoint
     # https://api.openweathermap.org/data/2.5/weather?lat=36.600256&lon=-121.8946388&appid=77b4df041ddc47e427d8799ea237cb80
-
+    # retrieves the weather data to be displayed on details page
     try:
         wreq = requests.get(weather_endpoint)
         weatherdata = wreq.json()
@@ -61,14 +62,14 @@ def link():
         print("Weather Endpoint Fail Error!")
 
 
-    op = "clouds_new"
-    zoom = 2
-    x = 2
-    y = 2
+    # op = "clouds_new"
+    # zoom = 2
+    # x = 2
+    # y = 2
     icon_code = weatherdata["weather"][0]["icon"]
 
-    map_endpoint = f"https://tile.openweathermap.org/map/{op}/{zoom}/{x}/{y}.png?appid={my_key}"
-    icon_url = f"https://openweathermap.org/img/wn/{icon_code}@2x.png"
+    # map_endpoint = f"https://tile.openweathermap.org/map/{op}/{zoom}/{x}/{y}.png?appid={my_key}"
+    icon_url = f"https://openweathermap.org/img/wn/{icon_code}@2x.png" #endpoint for icon retrieval
 
     urllib.request.urlretrieve(icon_url, "static/images/weather_icon.png")
     
@@ -85,8 +86,8 @@ def link():
     # except:
     #     print("Map Endpoint Fail Error!")
 
-    pprint(f"geodata->{geodata}")
-    pprint(f"weatherdata->{weatherdata}")
+    # pprint(f"geodata->{geodata}")
+    # pprint(f"weatherdata->{weatherdata}")
     # pprint(mapdata.type())
     return render_template('Weather_Details.html', city_name = city_name, geodata = geodata, weatherdata = weatherdata, icon_name = "weather_icon.png")
 
