@@ -2,7 +2,8 @@
 Authors: Armando, Lily, Eduardo, Gabe
 Course: CST-205
 Date: 05/14/2024
-
+Summary: Runs a flask app that allows for the user to enter in a city name
+and brings a second page with some weather information of that city currently.
 =======
 Gabe and Armando mostly worked on this python file 
 """
