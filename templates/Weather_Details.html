@@ -58,14 +58,14 @@
         </section>
           <h2> Weather in {{city_name}}</h2>
           <br>
-          <!-- Kelvin to Fahrenheit & Celsius conversions done below. -->
+          <!-- Kelvin to Fahrenheit & Celsius conversions done below. - Gabe -->
           <p> Temperature Fahrenheit:<br> {{(((weatherdata['main']['temp']) - 273.15) * 1.8 + 32) | round(2)}}°F</p>
           <p>Temperature Celsius:<br> {{((weatherdata['main']['temp']) - 273.15) | round(2)}}°C</p>
 
           {% set temp_celsius = ((weatherdata['main']['temp']) - 273.15) | round(2) %}
           <p>Wind Speed:</p>
+<!--             Conversion from standard meters per second to miles per hour windspeed done below. - Gabe -->
           <p> {{weatherdata['wind']['speed'] | round(2)}}m/s or {{((weatherdata['wind']['speed']) * 2.23694) | round(2)}}mpH </p>
-
            <p>Humidity: {{weatherdata['main']['humidity']}}g/kg^-1 </p>
           <p>Weather Condition: {{weatherdata['weather'][0]['description']}}</p>   
 
