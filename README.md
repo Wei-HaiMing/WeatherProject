@@ -8,3 +8,5 @@ This will give you the link for the website Otter Weather. When you get to the h
 and it will take you the details page where it will give you the detail such as temperature both in degrees Farenheight and Celsius as well as the wind speed.
 In the future we will like to enter functionality that doesn't require entering a city but rather use location where you can enter the route which displays how the weather conditions 
 change throughout your trip.
+
+GitHub Link: https://github.com/Wei-HaiMing/WeatherProject
