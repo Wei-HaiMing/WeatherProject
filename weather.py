@@ -28,6 +28,8 @@ def homepage():
     global city_name
     city_name = request.form.get('citytxtbox')
     return render_template('home.html', city_name = city_name)
+    # Defines the route to homepage, intakes city name via form in html named citytxtbox - Gabe
+
 
 
 @app.route('/details')
@@ -40,7 +42,7 @@ def link(): # route to details page
     # geo test endpoint:
     # https://api.openweathermap.org/geo/1.0/direct?q=Monterey&limit=1&appid=77b4df041ddc47e427d8799ea237cb80
 
-    # retrieves longitude and latitude from GeoEncoder API
+    # retrieves longitude and latitude from GeoEncoder API - Gabe
     try:
         greq = requests.get(geo_endpoint)
         geodata = greq.json()
@@ -54,7 +56,7 @@ def link(): # route to details page
     weather_endpoint = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={my_key}"
     # weather test endpoint
     # https://api.openweathermap.org/data/2.5/weather?lat=36.600256&lon=-121.8946388&appid=77b4df041ddc47e427d8799ea237cb80
-    # retrieves the weather data to be displayed on details page
+    # retrieves the weather data to be displayed on details page - Gabe
     try:
         wreq = requests.get(weather_endpoint)
         weatherdata = wreq.json()
