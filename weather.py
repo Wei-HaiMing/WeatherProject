@@ -12,6 +12,11 @@ and how to retrieve the correct information in order for city name
 searches to function properly. Also retrieved and displayed weather
 icon on the weather details page. I attempted to retrieve a map from the
 API, but was unsuccessful.
+
+Gabe: Coded app routes to each individual page. Took Armando's initial json and request code, and added functionality and test endpoints 
+for each individual data dump. Coded the form in home route such that it returned a string that was the user city search input.
+Keying, API access and research in these aspects were done by Armando, and I built upon them by looking into json dumps and coding HTML
+to display data from the requests. Added longitude and latitude data access directly for convenience.
 """
 from flask import  Flask, render_template, request, redirect
 from PIL import Image
